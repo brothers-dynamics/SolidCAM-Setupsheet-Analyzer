@@ -12,13 +12,10 @@ This web application allows you to analyze SolidCAM setup sheet files in HTML fo
 
 ## Serving the Web Application
 
-To serve the web application, you can use any suitable web server. Here are a few options:
-
-- Use a local development server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for Visual Studio Code.
-- Set up a local web server using tools like [Node.js](https://nodejs.org/) and [Express](https://expressjs.com/).
-- Deploy the web application to a hosting platform of your choice, such as [Netlify](https://www.netlify.com/) or [GitHub Pages](https://pages.github.com/).
-
-Choose the method that best fits your development environment and requirements.
+to serve the application you can use the following command: 
+```bash
+node server.js
+```
 
 ## Additional Notes
 
