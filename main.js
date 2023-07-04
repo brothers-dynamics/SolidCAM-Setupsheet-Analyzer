@@ -36,6 +36,10 @@ document.querySelector('#clear-table').onclick = () => {
 	localStorage.removeItem('TableData');
 }
 
+document.querySelector('#export-data').onclick = () => {
+	Application.ExportDataAsJSON();
+}
+
 document.querySelector('#input-scale').oninput = function() {
 	Application.Scale = Number(this.value);
 	Application.UpdateTable();

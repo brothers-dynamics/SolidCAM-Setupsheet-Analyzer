@@ -33,7 +33,7 @@ input[type='file'] {
 	border-bottom: 1px dashed #ccc;
 }
 
-label, #clear-table {
+label, #clear-table, #export-data {
 	display: flex;
 	width: fit-content;
 	flex-direction: row;
@@ -59,6 +59,14 @@ label:hover {
 
 #clear-table:hover {
 	background-color: #E53935;
+}
+
+#export-data {
+	background-color: #4CAF50;
+}
+
+#export-data:hover {
+	background-color: #388E3C;
 }
 
 label svg, #clear-table svg {
