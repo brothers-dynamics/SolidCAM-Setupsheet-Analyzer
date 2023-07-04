@@ -1,4 +1,4 @@
-# Tool Usage Calculator
+# SolidCAM Setupsheet Analyzer (SSA)
 
 This web application allows you to analyze SolidCAM setup sheet files in HTML format. By uploading the datasheets, you can get a better understanding of the project, including estimations of the tool costs and the number of tools required. The application provides sorting capabilities to arrange the data based on your preferences.
 
@@ -25,4 +25,5 @@ node server.js
 - Make sure to specify the scale factor appropriately using the input field provided.
 - The web application is designed to provide insights into the tool usage and cost estimation for SolidCAM projects.
 
-Please note that this is a sample README.md file, and you may need to update it according to the specific details and requirements of your project.
+## Contributing
+Pull requests are welcome. For major changes or feature requests, please open an issue first to discuss what you would like to change.
