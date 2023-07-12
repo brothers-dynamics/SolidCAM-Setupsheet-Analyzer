@@ -24,6 +24,7 @@ document.querySelector('#input-file').oninput = function () {
         // All files have been loaded, update the table
         Application.LoadFromReports(reports);
         Application.SaveTable();
+        Application.UpdateTable();
         this.value = null;
       }
     };
