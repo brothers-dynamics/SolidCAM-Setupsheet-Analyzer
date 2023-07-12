@@ -14,6 +14,8 @@ export default class Application {
   static Data = [];
   static Scale = 1;
   static Grid = null;
+  // stores where was the screen last time
+  static ScreenY = 0;
   // renders table
   static UpdateTable() {
     Application.State.Sort.Timer && clearTimeout(Application.State.Sort.Timer);
@@ -187,6 +189,13 @@ export default class Application {
         });
       });
     }, 1001);
+
+    Application.Data.ToolsList.at(-1).Price = 0;
+    Application.Data.ToolsList.forEach((tool, i) => {
+      if (i === Application.Data.ToolsList.length - 1) return;
+      Application.Data.ToolsList.at(-1).Price +=
+        tool.Price.toString().replace(/,/g, '') * tool.Supply;
+    });
   }
   static ShowToolDataDialog(toolName) {
     if (toolName === '#Total') return;

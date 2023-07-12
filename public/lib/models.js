@@ -172,7 +172,10 @@ export class Tool {
     this.Name = name;
     this.Diameter = diameter;
     const restoredTool = Application.RestoreTool(name);
-    this.Price = restoredTool ? restoredTool.Price : 0;
+    if (restoredTool) {
+      this.Price = restoredTool.Price.replace(/,/g, '');
+      this.Supply = restoredTool.Supply;
+    }
     for (const operationType of Object.keys(FLAGS)) {
       this.OperationTime[operationType] = 0;
       this.LifeSpan[operationType] = restoredTool
