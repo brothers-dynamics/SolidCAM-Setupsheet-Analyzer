@@ -12,10 +12,19 @@ This web application allows you to analyze SolidCAM setup sheet files in HTML fo
 
 ## Serving the Web Application
 
-to serve the application you can use the following command: 
+to serve the application you can use the following command (nodejs required):
+
 ```bash
 node server.js
 ```
+
+or if you are on windows run the following command:
+
+```bash
+npm ci
+```
+
+and then run the `serve.ps1` script.
 
 ## Additional Notes
 
@@ -26,4 +35,5 @@ node server.js
 - The web application is designed to provide insights into the tool usage and cost estimation for SolidCAM projects.
 
 ## Contributing
+
 Pull requests are welcome. For major changes or feature requests, please open an issue first to discuss what you would like to change.
