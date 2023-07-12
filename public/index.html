@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./fav.ico" />
+    <link rel="stylesheet" href="/public/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    />
+    <title>SolidCAM Setupsheet Analyzer</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="options">
+        <label for="input-file">
+          <svg
+            width="24px"
+            height="24px"
+            stroke-width="1"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#eee"
+          >
+            <path
+              d="M12 22v-9m0 0l3.5 3.5M12 13l-3.5 3.5M20 17.607c1.494-.585 3-1.918 3-4.607 0-4-3.333-5-5-5 0-2 0-6-6-6S6 6 6 8c-1.667 0-5 1-5 5 0 2.689 1.506 4.022 3 4.607"
+              stroke="#eee"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>Upload Setupsheets</span>
+        </label>
+        <div id="clear-table">
+          <svg
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#eee"
+          >
+            <path
+              d="M21 21H9M15.889 14.89L8.464 7.463M2.893 12.607l9.193-9.193a2 2 0 012.828 0l4.95 4.95a2 2 0 010 2.828l-9.243 9.243a1.929 1.929 0 01-2.728 0l-5-5a2 2 0 010-2.828z"
+              stroke="#eee"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>Clear Table</span>
+        </div>
+        <div id="export-data">
+          <svg
+            width="24px"
+            height="24px"
+            stroke-width="1"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#eee"
+          >
+            <path
+              d="M19 16v6m0 0l3-3m-3 3l-3-3M4 6v6s0 3 7 3 7-3 7-3V6"
+              stroke="#eee"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M11 3c7 0 7 3 7 3s0 3-7 3-7-3-7-3 0-3 7-3zM11 21c-7 0-7-3-7-3v-6"
+              stroke="#eee"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <span>Export Data</span>
+        </div>
+        <div class="scale">
+          <div class="div">Scale :</div>
+          <input type="text" id="input-scale" min="1" value="1" step="1" />
+        </div>
+      </div>
+      <input type="file" id="input-file" accept=".html" multiple />
+      <div id="table"></div>
+    </div>
+    <div class="glass"></div>
+    <dialog>
+      <div>
+        <svg
+          width="20px"
+          height="20px"
+          stroke-width="1"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="#000000"
+        >
+          <path
+            d="M22 14V8.5M6 13V6a3 3 0 013-3h5M18 4h4M12 21H6a4 4 0 010-8h12a4 4 0 104 4v-3"
+            stroke="#000000"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path></svg
+        >Setting Tool-Data For : <b id="tool-name-placeholder">AP10D50</b>
+      </div>
+      <div class="subtitle">Input Time (minutes)</div>
+      <form method="dialog" id="form-life-span">
+        <div class="input-container">
+          <div class="input-wrapper">
+            <span>Rough : </span>
+            <input type="text" name="Rough" min="0" value="0" step="10" />
+          </div>
+          <div class="input-wrapper">
+            <span>Semi-Finish : </span>
+            <input type="text" name="Semi-Finish" min="0" value="0" step="10" />
+          </div>
+          <div class="input-wrapper">
+            <span>Finish : </span>
+            <input type="text" name="Finish" min="0" value="0" step="10" />
+          </div>
+          <div class="input-wrapper">
+            <span>Drilling : </span>
+            <input type="text" name="Drilling" min="0" value="0" step="10" />
+          </div>
+          <div class="input-wrapper">
+            <span>Face-Milling : </span>
+            <input
+              type="text"
+              name="Face-Milling"
+              min="0"
+              value="0"
+              step="10"
+            />
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <span>Price : </span>
+          <input type="text" id="tool-price" min="0" value="0" step="50000" />
+        </div>
+        <div class="button-container">
+          <button type="button" id="button-save-life-span">Save</button>
+          <button type="button" id="button-close-life-span">Close</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="/public/main.js"></script>
+  </body>
+</html>

@@ -1,1 +1,1 @@
-node server.js
+npx pm2 start server.js --watch

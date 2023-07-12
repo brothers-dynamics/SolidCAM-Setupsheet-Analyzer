@@ -1,0 +1,15 @@
+{
+  "name": "solidcam-setupsheet-analyzer",
+  "version": "1.0.0",
+  "description": "This web application allows you to analyze SolidCAM setup sheet files in HTML format. By uploading the datasheets, you can get a better understanding of the project, including estimations of the tool costs and the number of tools required. The application provides sorting capabilities to arrange the data based on your preferences.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pm2": "^5.3.0"
+  }
+}
