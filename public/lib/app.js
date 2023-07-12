@@ -134,6 +134,7 @@ export default class Application {
             () =>
               resolve(
                 Application.Data.ToolsList.map((tool) => {
+                  window.scroll(0, Application.ScreenY);
                   return [
                     tool.Name,
                     tool.Diameter,

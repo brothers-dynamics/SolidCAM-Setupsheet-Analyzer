@@ -66,6 +66,11 @@ document.body.onkeydown = (e) => {
     Application.SaveToolData();
   }
 };
+document.body.onscroll = (e) => {
+  if (window.scrollY) {
+    Application.ScreenY = window.scrollY;
+  }
+};
 
 const numericalStepperInputs = document.querySelectorAll('input[type="text"]');
 numericalStepperInputs.forEach((input) => {
