@@ -24,7 +24,7 @@ For example, operation names related to drilling should start with either `D_` o
 > You have the freedom to extend the flags or add support for additional operation types. This can be done in the `/public/lib/settings.js` file.
 
 > **Warning**
-> Strict adherence to the naming convention is **essential** for the proper functioning of the SolidCAM Setupsheet Analyzer (SSA) application. Failure to follow this convention will result in the application refusing to work correctly. Therefore, it is imperative to apply the naming convention as described below:
+> Strict adherence to the naming convention is **essential** for the proper functioning of the SolidCAM Setupsheet Analyzer (SSA) application. Failure to follow this convention will result in the application refusing to work correctly. Therefore, it is imperative to apply the naming convention as described above.
 
 ## Usage
 
@@ -50,7 +50,7 @@ npm ci
 
 and then run the `serve.ps1` script (in linux use `bash serve.ps1`)
 
-now you can access the app at [localhost:3000](localhost:3000)
+now you can access the app at `localhost:3000`
 
 ## Additional Notes
 
