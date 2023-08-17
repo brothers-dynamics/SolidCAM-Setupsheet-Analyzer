@@ -10,11 +10,11 @@ Before using the SolidCAM Setupsheet Analyzer (SSA), it is important to follow a
 
 ```javascript
 const FLAGS = {
-  Rough: ['R_', 'THSR', 'I3DROUGH', 'IROUGH', 'IREST'],
-  'Semi-Finish': ['SEMI_'],
-  Finish: ['HSS', 'F_', 'P_', 'F3D'],
-  Drilling: ['D_', 'SPOT'],
-  'Face-Milling': ['FM_'],
+  'Rough'        : ['R_', 'THSR', 'I3DROUGH', 'IROUGH', 'IREST'],
+  'Semi-Finish'  : ['SEMI_'],
+  'Finish'       : ['HSS', 'F_', 'P_', 'F3D'],
+  'Drilling'     : ['D_', 'SPOT'],
+  'Face-Milling' : ['FM_'],
 };
 ```
 
