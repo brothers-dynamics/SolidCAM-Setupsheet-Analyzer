@@ -121,6 +121,13 @@ export default class Application {
           sort,
         },
         {
+          name: 'Parts',
+          formatter: (value) => {
+            return value.replace('#', '');
+          },
+          sort,
+        },
+        {
           name: 'Cost',
           formatter: (value) => {
             return value.replace('#', '');
@@ -143,6 +150,11 @@ export default class Application {
                       ? tool.Supply
                       : tool.Supply
                       ? (tool.Supply * Application.Scale).toFixed(4)
+                      : 'N/D', // supply
+                    tool.Supply === '#Supply'
+                      ? "Parts"
+                      : tool.Supply
+                      ? (1 / tool.Supply * Application.Scale).toFixed(2)
                       : 'N/D', // supply
                     tool.Supply
                       ? (tool.Name === '#Total' ? '#' : '') +
