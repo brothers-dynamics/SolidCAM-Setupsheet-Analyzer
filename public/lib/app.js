@@ -152,9 +152,9 @@ export default class Application {
                       ? (tool.Supply * Application.Scale).toFixed(4)
                       : 'N/D', // supply
                     tool.Supply === '#Supply'
-                      ? "Parts"
+                      ? 'Parts'
                       : tool.Supply
-                      ? (1 / tool.Supply * Application.Scale).toFixed(2)
+                      ? ((1 / tool.Supply) * Application.Scale).toFixed(2)
                       : 'N/D', // supply
                     tool.Supply
                       ? (tool.Name === '#Total' ? '#' : '') +
@@ -314,6 +314,50 @@ export default class Application {
 
       URL.revokeObjectURL(url);
     }
+  }
+  // correct the supply value for each tool
+  static ReformSupply() {
+    Application.Data.ToolsList.forEach((tool) => {
+      // get
+      const toolName = tool.Name;
+      const data = {};
+      if (toolName === '#Total') return;
+      const form = document.querySelector('#form-life-span');
+      const formData = new FormData(form);
+      const tool =
+        Application.Data.ToolsList[
+          Application.Data.GetToolIndexByName(toolName)
+        ];
+      const restoredTool = Application.RestoreTool(toolName);
+      for (const operationType of formData.keys()) {
+        data[operationType] =
+          tool.LifeSpan[operationType] ||
+          (restoredTool ? restoredTool.LifeSpan[operationType] : 0);
+      }
+      let price = tool.Price || (restoredTool ? restoredTool.Price : 0);
+      // set
+      Application.Data.ToolsList.at(-1).Price -=
+        tool.Price.toString().replace(/,/g, '') * tool.Supply;
+      tool.Supply = 0;
+      let noErrorInCalculatingSupply = true;
+      for (const operationType of formData.keys()) {
+        const newLifeSpan = Number(data(operationType));
+        tool.LifeSpan[operationType] = Number(data[operationType]);
+        if (tool.OperationTime[operationType] && newLifeSpan) {
+          tool.Supply += tool.OperationTime[operationType] / (newLifeSpan * 60);
+        } else if (tool.OperationTime[operationType] && !newLifeSpan) {
+          noErrorInCalculatingSupply = false;
+        }
+      }
+      tool.Supply = tool.Supply.toFixed(4);
+      if (!noErrorInCalculatingSupply) tool.Supply = false;
+      tool.Price = price;
+      Application.Data.ToolsList.at(-1).Price +=
+        tool.Price.toString().replace(/,/g, '') * tool.Supply;
+      Application.SaveTool(tool);
+    });
+    Application.UpdateTable();
+    Application.SaveTable();
   }
 }
 

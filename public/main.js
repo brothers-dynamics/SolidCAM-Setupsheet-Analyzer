@@ -23,7 +23,7 @@ document.querySelector('#input-file').oninput = function () {
       if (reports.length === files.length) {
         // All files have been loaded, update the table
         Application.LoadFromReports(reports);
-        Application.SaveTable();
+        Application.ReformSupply();
         this.value = null;
       }
     };
