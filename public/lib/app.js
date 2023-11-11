@@ -324,7 +324,7 @@ export default class Application {
       if (toolName === '#Total') return;
       const form = document.querySelector('#form-life-span');
       const formData = new FormData(form);
-      const tool =
+      tool =
         Application.Data.ToolsList[
           Application.Data.GetToolIndexByName(toolName)
         ];
@@ -341,7 +341,7 @@ export default class Application {
       tool.Supply = 0;
       let noErrorInCalculatingSupply = true;
       for (const operationType of formData.keys()) {
-        const newLifeSpan = Number(data(operationType));
+        const newLifeSpan = Number(data[operationType]);
         tool.LifeSpan[operationType] = Number(data[operationType]);
         if (tool.OperationTime[operationType] && newLifeSpan) {
           tool.Supply += tool.OperationTime[operationType] / (newLifeSpan * 60);
