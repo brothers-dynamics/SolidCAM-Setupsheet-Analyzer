@@ -173,7 +173,7 @@ export class Tool {
     this.Diameter = diameter;
     const restoredTool = Application.RestoreTool(name);
     if (restoredTool) {
-      this.Price = restoredTool.Price.replace(/,/g, '');
+      this.Price = restoredTool.Price.toString().replace(/,/g, '');
       this.Supply = restoredTool.Supply;
     }
     for (const operationType of Object.keys(FLAGS)) {

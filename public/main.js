@@ -11,16 +11,20 @@ document.querySelector('#input-file').oninput = function () {
   for (const file of files) {
     const reader = new FileReader();
     reader.onload = (e) => {
+      const filename = file.name;
       const fileContent = e.target.result;
       const parser = new DOMParser();
       const template = parser.parseFromString(fileContent, 'text/html');
+      const quantity = Number(prompt(`Enter quantity for ${filename}`, 1));
       const report = new Report(template);
       if (!report.Healthy) {
         alert('One or more input datasheets are not valid !');
         return;
       }
-      reports.push(report);
-      if (reports.length === files.length) {
+      for (let i = 0; i < quantity; i++) {
+        reports.push(report);
+      }
+      if (reports.length === quantity * files.length) {
         // All files have been loaded, update the table
         Application.LoadFromReports(reports);
         Application.ReformSupply();
