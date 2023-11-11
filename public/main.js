@@ -24,12 +24,10 @@ document.querySelector('#input-file').oninput = function () {
       for (let i = 0; i < quantity; i++) {
         reports.push(report);
       }
-      if (reports.length === quantity * files.length) {
-        // All files have been loaded, update the table
-        Application.LoadFromReports(reports);
-        Application.ReformSupply();
-        this.value = null;
-      }
+
+      Application.LoadFromReports(reports);
+      Application.ReformSupply();
+      this.value = null;
     };
     reader.readAsText(file);
   }
