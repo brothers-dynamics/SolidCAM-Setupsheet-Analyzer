@@ -92,7 +92,7 @@ export default class Application {
           formatter: (diameter) => {
             return diameter === '#Diameter'
               ? 'Diameter'
-              : html(`${diameter}<b style='font-size: 9px'>mm</b>`);
+              : diameter;
           },
           sort,
         },
