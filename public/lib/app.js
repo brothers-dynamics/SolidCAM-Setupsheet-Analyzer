@@ -79,7 +79,7 @@ export default class Application {
           formatter: (name) => {
             let formatted = name.replace('#', '');
             if (formatted !== 'Total') {
-              formatted += `<div style='color: #B71C1C;font-size: 12px;'>Price: ${
+              formatted += `<div class="no-print" style='color: #B71C1C;font-size: 12px;'>Price: ${
                 Application.Data.GetToolByName(name).Price
               }</div>`;
             }

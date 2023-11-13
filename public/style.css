@@ -226,3 +226,9 @@ table tbody tr:nth-of-type(2n+1) td {
 table tbody tr:hover {
 	font-weight: bold;
 }
+
+@media print {
+	.no-print {
+		display: none;
+	}
+}
