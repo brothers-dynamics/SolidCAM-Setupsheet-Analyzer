@@ -24,7 +24,6 @@ document.querySelector('#input-file').oninput = function () {
       for (let i = 0; i < quantity; i++) {
         reports.push(report);
       }
-
       Application.LoadFromReports(reports);
       Application.ReformSupply();
       this.value = null;

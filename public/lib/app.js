@@ -85,14 +85,24 @@ export default class Application {
             }
             return html(formatted);
           },
-          sort,
+          sort: {
+            compare: (a, b) => {
+              if (a[0] === '#' || b[0] === '#') {
+                return 0;
+              }
+              if (a === 'N/D') return -1;
+              if (a > b) {
+                return -1;
+              } else {
+                return 1;
+              }
+            },
+          },
         },
         {
           name: 'Diameter',
           formatter: (diameter) => {
-            return diameter === '#Diameter'
-              ? 'Diameter'
-              : diameter;
+            return diameter === '#Diameter' ? 'Diameter' : diameter;
           },
           sort,
         },
